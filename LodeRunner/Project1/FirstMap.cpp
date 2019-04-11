@@ -31,7 +31,7 @@ void PlayGame()
 		GotoXY(MENU_INDENT, INDENT_TOP + 5);
 		cout << "LOAD";
 		GotoXY(MENU_INDENT, INDENT_TOP + 7);
-		cout << "EXIT";
+		cout << "EXIT          ";
 		ReadConsoleInput(h_in, all_events, 256, &read_enevt); // получить все события, произошедшие в консоли
 		for (int i = 0; i < read_enevt; i++)
 		{
@@ -40,6 +40,7 @@ void PlayGame()
 			{ // если произошло событие мышки
 				for (int k = 0; k < 16; k++)
 				{
+					// Item 1
 					if ((all_events[i].Event.MouseEvent.dwMousePosition.X >= MENU_INDENT &&
 						all_events[i].Event.MouseEvent.dwMousePosition.X < MENU_INDENT + 4) &&
 						all_events[i].Event.MouseEvent.dwMousePosition.Y == INDENT_TOP + 1 &&
@@ -48,6 +49,7 @@ void PlayGame()
 						DrawSpace(0, INDENT_SIDE - 2, 0, 50);
 						Move();
 					}
+					// Item 2
 					else if ((all_events[i].Event.MouseEvent.dwMousePosition.X >= MENU_INDENT + 2 &&
 						all_events[i].Event.MouseEvent.dwMousePosition.X < MENU_INDENT + 6) &&
 						all_events[i].Event.MouseEvent.dwMousePosition.Y == INDENT_TOP + 3 &&
@@ -70,6 +72,7 @@ void PlayGame()
 						delete name;
 						continue;
 					}
+					// Item 3
 					else if ((all_events[i].Event.MouseEvent.dwMousePosition.X >= MENU_INDENT &&
 						all_events[i].Event.MouseEvent.dwMousePosition.X < MENU_INDENT + 4) &&
 						all_events[i].Event.MouseEvent.dwMousePosition.Y == INDENT_TOP + 5 &&
@@ -82,20 +85,25 @@ void PlayGame()
 						GotoXY(MENU_INDENT, INDENT_TOP + 5);
 						cout << "MAP3  ";
 						GotoXY(MENU_INDENT, INDENT_TOP + 7);
-						cout << "USER MAP  ";
+						cout << "USER MAP   ";
 						ReadConsoleInput(h_in, all_events, 256, &read_enevt); // получить все события, произошедшие в консоли
 						bool backToMainMenu = false;
-						while (!backToMainMenu) 
+						while (!backToMainMenu)
 						{
+							//check for click
+							if (_kbhit())
+							{
+								break;
+							}
 							ReadConsoleInput(h_in, all_events, 256, &read_enevt);// получить все события, произошедшие в консоли
-						for (int i = 0; i < read_enevt; i++)
-						{
-							// пройтись по всем событиям
-							if (all_events[i].EventType == MOUSE_EVENT)
-							{ // если произошло событие мышки
+							for (int i = 0; i < read_enevt; i++)
+							{
+								// пройтись по всем событиям
+								if (all_events[i].EventType == MOUSE_EVENT)
+								{ // если произошло событие мышки
 									for (int k = 0; k < 16; k++)
 									{
-
+										// Item 1
 										if ((all_events[i].Event.MouseEvent.dwMousePosition.X >= MENU_INDENT &&
 											all_events[i].Event.MouseEvent.dwMousePosition.X < MENU_INDENT + 4) &&
 											all_events[i].Event.MouseEvent.dwMousePosition.Y == INDENT_TOP + 1 &&
@@ -109,6 +117,7 @@ void PlayGame()
 											ReadConsoleInput(h_in, all_events, 256, &read_enevt + 100); // +100 because i need change cursor position to avoid continuation of the program 
 											break;
 										}
+										// Item 2
 										else if ((all_events[i].Event.MouseEvent.dwMousePosition.X >= MENU_INDENT &&
 											all_events[i].Event.MouseEvent.dwMousePosition.X < MENU_INDENT + 4) &&
 											all_events[i].Event.MouseEvent.dwMousePosition.Y == INDENT_TOP + 3 &&
@@ -122,6 +131,7 @@ void PlayGame()
 											ReadConsoleInput(h_in, all_events, 256, &read_enevt + 100); // +100 because i need change cursor position to avoid continuation of the program 
 											break;
 										}
+										// Item 3
 										else if ((all_events[i].Event.MouseEvent.dwMousePosition.X >= MENU_INDENT &&
 											all_events[i].Event.MouseEvent.dwMousePosition.X < MENU_INDENT + 4) &&
 											all_events[i].Event.MouseEvent.dwMousePosition.Y == INDENT_TOP + 5 &&
@@ -135,6 +145,7 @@ void PlayGame()
 											ReadConsoleInput(h_in, all_events, 256, &read_enevt + 100); // +100 because i need change cursor position to avoid continuation of the program 
 											break;
 										}
+										// Item 4
 										else if ((all_events[i].Event.MouseEvent.dwMousePosition.X >= MENU_INDENT &&
 											all_events[i].Event.MouseEvent.dwMousePosition.X < MENU_INDENT + 4) &&
 											all_events[i].Event.MouseEvent.dwMousePosition.Y == INDENT_TOP + 7 &&
@@ -155,11 +166,13 @@ void PlayGame()
 											ReadConsoleInput(h_in, all_events, 256, &read_enevt + 100); // +100 because i need change cursor position to avoid continuation of the program 
 											break;
 										}
+
 									}
 								}
 							}
 						}
 					}
+					// Item 4
 					else if ((all_events[i].Event.MouseEvent.dwMousePosition.X >= MENU_INDENT &&
 						all_events[i].Event.MouseEvent.dwMousePosition.X < MENU_INDENT + 4) &&
 						all_events[i].Event.MouseEvent.dwMousePosition.Y == INDENT_TOP + 7 &&
