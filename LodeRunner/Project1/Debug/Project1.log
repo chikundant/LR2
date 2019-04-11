@@ -1,0 +1,7 @@
+﻿  FirstMap.cpp
+d:\дз\loderunner\loderunner2\loderunner\project1\firstmap.cpp(36): warning C4018: '<': signed/unsigned mismatch
+d:\дз\loderunner\loderunner2\loderunner\project1\firstmap.cpp(91): warning C4018: '<': signed/unsigned mismatch
+d:\дз\loderunner\loderunner2\loderunner\project1\firstmap.cpp(175): warning C4018: '<': signed/unsigned mismatch
+d:\дз\loderunner\loderunner2\loderunner\project1\firstmap.cpp(216): warning C4244: '=': conversion from 'wint_t' to 'char', possible loss of data
+d:\дз\loderunner\loderunner2\loderunner\project1\firstmap.cpp(299): warning C4244: '=': conversion from 'wint_t' to 'char', possible loss of data
+  Project1.vcxproj -> D:\ДЗ\LodeRunner\LodeRunner2\LodeRunner\Debug\LodeRunner.exe
